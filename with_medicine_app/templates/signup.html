@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    <title>Signup</title>
+{% endblock title %}
+
+{% block content %}
+    <h1>Signup Page</h1>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        사용자명: <input name="username" type = "text"> <br>
+        닉네임: <input name="nickname" type = "text"> <br>
+        비밀번호: <input name="password1" type = "password"> <br>
+        비밀번호 재확인: <input name="password2" type = "password"> <br>
+        성별: <input name="gender" type = "text"> <br>
+        <br>
+        <button type = "submit">가입</button>
+    </form>
+{% endblock %}

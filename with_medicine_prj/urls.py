@@ -21,12 +21,32 @@ from django.conf.urls.static import static
 from django.conf.urls import include
 
 import with_medicine_app.views
+import with_medicine_free
+import with_medicine_review
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', with_medicine_app.views.main, name = 'main'),
+    path('signup/', with_medicine_app.views.signup, name='signup'),
+    path('login/', with_medicine_app.views.login, name='login'),
+    path('logout/', with_medicine_app.views.logout, name='logout'),
 
     path('', include('with_medicine_free.urls')),
+    path('free_create/', with_medicine_free.views.free_create, name = 'free_create'),
+    path('free_read/', with_medicine_free.views.free_read, name = 'free_read'),
+    path('free_detail/<str:id>/', with_medicine_free.views.free_detail, name= 'free_detail'),
+    path('free_update/<str:id>/', with_medicine_free.views.free_update, name = 'free_update'),
+    path('free_delete/<str:id>/', with_medicine_free.views.free_delete, name='free_delete'),
+    path('<int:id>/comments/<int:c_id>/free_comment_delete', with_medicine_free.views.free_comment_delete, name="free_comment_delete"),
+    path('free_comment_update/<int:id>/<int:com_id>/', with_medicine_free.views.free_comment_update, name="free_comment_update"),
+    
     path('', include('with_medicine_review.urls')),
+    path('review_create/', with_medicine_review.views.review_create, name = 'review_create'),
+    path('review_read/', with_medicine_review.views.review_read, name = 'review_read'),
+    path('review_detail/<str:id>/', with_medicine_review.views.review_detail, name= 'review_detail'),
+    path('review_update/<str:id>/', with_medicine_review.views.review_update, name = 'review_update'),
+    path('review_delete/<str:id>/', with_medicine_review.views.review_delete, name='review_delete'),
+    path('<int:id>/comments/<int:c_id>/review_comment_delete', with_medicine_review.views.review_comment_delete, name="review_comment_delete"),
+    path('review_comment_update/<int:id>/<int:com_id>/', with_medicine_review.views.review_comment_update, name="review_comment_update"),
 ]+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -5,12 +5,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>review_read</title>
+    <title>Review_read</title>
 </head>
 
 <body>
 {% block content %}
-    <h1>review_read</h1>
+    <h1>Review_read</h1>
+    <hr>
+    {% for review_board in review_board %}
+        <h3><a href="{% url 'review_detail' review_board.id %}">{{ review_board.title }}</a></h3>
+        <p>{{ review_board.pub_date }}</p>
+        <p>{{ review_board.body }}</p>
+    {% endfor %}
+    <a href="{% url 'review_create' %}">글 작성하기</a>
 {% endblock %}
+
 </body>
 </html>
