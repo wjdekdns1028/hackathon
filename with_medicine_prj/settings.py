@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'with_medicine_app',
     'with_medicine_free',
     'with_medicine_review',
+    'with_medicine_userapp',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'with_medicine_userapp.CustomUser'

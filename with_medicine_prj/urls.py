@@ -23,14 +23,18 @@ from django.conf.urls import include
 import with_medicine_app.views
 import with_medicine_free
 import with_medicine_review
+#import with_medicine_user
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', with_medicine_app.views.main, name = 'main'),
-    path('signup/', with_medicine_app.views.signup, name='signup'),
-    path('login/', with_medicine_app.views.login, name='login'),
-    path('logout/', with_medicine_app.views.logout, name='logout'),
+    
+    path('with_medicine_userapp/', include('with_medicine_userapp.urls')),
+    #path('signup/', with_medicine_user.views.signup, name='signup'),
+    #path('login/', with_medicine_user.views.login, name='login'),
+    #path('logout/', with_medicine_user.views.logout, name='logout'),
 
     path('', include('with_medicine_free.urls')),
     path('free_create/', with_medicine_free.views.free_create, name = 'free_create'),

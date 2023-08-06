@@ -2,16 +2,14 @@
 
 {% block title %}
     <title>Login</title>
-{% endblock title %}
+{% endblock %}
 
 {% block content %}
     <h1>Login Page</h1>
     <hr>
     <form method="POST">
         {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
+        {{ form.as_p }}
         <button type = "submit">로그인</button>
     </form>
 {% endblock %}

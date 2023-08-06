@@ -15,7 +15,6 @@ def free_create(request):
             form = form.save(commit = False)
             form.pub_date = timezone.now()
             form.save()
-            form.save_m2m()
             return redirect('free_read')
     else:
         form = Free_board_Form
